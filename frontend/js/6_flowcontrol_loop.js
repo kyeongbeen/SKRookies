@@ -27,7 +27,7 @@ for (let i = 3; i <= 5; i+=2) {
 
 // 위 코드에서 4단만 배제하시오
 for (let i = 3; i <= 5; i++) {
-    if ( i != 4 ) {
+    if (i != 4) {
         for (let j = 1; j <= 9; j++) {
             console.log( `${i} x ${j} = ${i*j}`);    
         }  
@@ -36,19 +36,19 @@ for (let i = 3; i <= 5; i++) {
 
 // 4단만 배제하여 실행
 for (let i = 3; i <= 5; i++) {
-    if ( i==4 ) {
+    if (i == 4) {
         continue; 
     }
     for (let j = 1; j <= 9; j++) {
-        console.log( `${i} x ${j} = ${i*j}`);    
+        console.log(`${i} x ${j} = ${i*j}`);    
     }  
 }
 
 // 4단만 출력후 반복문 종료(탈출 -> break)
 for (let i = 3; i <= 5; i++) {
-    if ( i==4 ) {   
+    if (i == 4) {   
         for (let j = 1; j <= 9; j++) {
-            console.log( `${i} x ${j} = ${i*j}`);    
+            console.log(`${i} x ${j} = ${i*j}`);    
         }
         break;
     }     
