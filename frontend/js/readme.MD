@@ -2,7 +2,7 @@
 ## 목적
 - 전 세계 언어 top10에 속함 -> 수요가 많다
 - FE 포지션에서 SPA 개발할 때 주력언어
-- react 개발시 사용언어 (JavaScript, Typecript)
+- react 개발시 사용언어 (JavaScript, Typescript)
 
 ## 개요
 - History
@@ -231,7 +231,7 @@
             2. 함수명 생략 -> 익명함수
             3. () : 매개변수 1개면 생략가능, 없거나 2개 이상이면 무조건 사용
             4. => : 화살표 추가
-            5. {} : statement가 1개이고, 리턴값이 존재하면 생략가능함, retrun도 생략가능
+            5. {} : statement가 1개이고, 리턴값이 존재하면 생략가능함, return도 생략가능
         - 가장 짧은 함수를 표현
             ``` js
             ()=>{}
@@ -266,7 +266,7 @@
 
 
 ## 객체
-- "9_objcet.js" 참고
+- "9_object.js" 참고
 - "10_class.js" 참고
 - 최신문법(ES Next이후)에서 클래스 표기법이 추가됨
 - 타 언어의 객체와 비슷하지만 다른점이 존재
@@ -285,6 +285,7 @@
         5. 클래스로 구현하는 방식
             - ES Next에서 추가됨
             - 초창기 5년간 react 개발시 주력으로 사용 -> 현재는 거의 X, 현재는 거의 함수형
+                - react에 훅이 추가되면서 함수형에서도 class형의 기능들을 대체할 수 있게 됨
             - 생성자 + 프로토타입 방식을 일반적인 클래스 형식에 도입하여 이용
     - 이 세상에 존재하는 모든 유/무형의 존재를 Entity
         - 유형 : 자동차, 사람, 컴퓨터, ...
@@ -349,4 +350,24 @@
             1. CommonJS(CJS) -> 초기 nodeis부터 지원, 여전히 사용가능
             2. ES Module(ESM) -> ES Next에 의해 추가됨, react/vue 등 사용
 - 연산시 null/undefined에 대한 오류대비 처리
-    - nullsafe, ...
+    - "15_nullSafe.js" 참고
+    - nullSafe, ...
+    - 코드실행시 오류코드가 발생할 수 있다 -> 방지코드
+    - ?.
+        - 비동기처리시 -> 함수().then().then(). ... -> optional chaining
+        - ex) 함수()?.then()?.then() -> 안전하게 처리가능 -> 중단되지 않게
+    - ??
+        - Nullish Coalescing
+        - Null일때의 방어코드 -> 선택적 값 선택 유도
+- 예외처리
+    - "16_exception.js" 참고
+    - S/W는 기본적으로 중단되면 안 됨
+    - I/O 사용하는 코드 -> 예외처리 해주자
+    - 오류발생
+        - 오류를 잡는다(catch)
+            - try ~ catch ~ finally
+            - try : 에러가 날 것 같은 코드를 포함시키기
+            - catch : try에서 에러가 난 경우 실행
+            - finally : 언제나 실행
+        - 오류를 던진다(throw)
+            - throws ErrorObject

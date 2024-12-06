@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <!-- html에서 전송:form or a -->
+        <div>
+            <p>로그인(get)</p>
+            <!-- action 생략되는 경우 존재 : 현재페이지가 주소 -->
+            <form action="/login" method="get">
+                <!--
+                    - 키를 반드시 지정해야 데이터가 전달된다
+                    - name 속성으로 지정
+                -->
+                <input type="text" id="userId" name="userId" placeholder="아이디">
+                <input type="password" id="userPw" name="userPw" namplaceholder="비밀번호">
+                <!-- submit : transport trigger -->
+                <button type="submit" id="loginButton">로그인</button>
+            </form>
+        </div>
+        <div>
+            <p>로그인(post)</p>
+            <!-- 405Error -->
+            <form action="/login" method="post">
+                <input type="text" id="userId" name="userId" placeholder="아이디">
+                <input type="password" id="userPw" name="userPw" namplaceholder="비밀번호">
+                <button type="submit" id="loginButton">로그인</button>
+            </form>
+        </div>
+    </body>
+</html>
+
+
+
+
+

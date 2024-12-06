@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <!-- 로그인 입력 화면 -->
+        <div>
+            <p>로그인</p>
+            <input type="text" id="userId" placeholder="아이디">
+            <input type="password" id="userPw" placeholder="비밀번호">
+            <button onclick="login();">로그인(inline)</button>
+            <button id="loginButton">로그인(internal)</button>
+            <script>
+                // JS영역
+                // html에 js는 어떻게 포함되는가 : internal 방식
+                // 로그인 함수
+                function login() {
+                    console.log("Login Button Clicked!");
+                }
+                // 1. 로그인 버튼 특정
+                // legacy style, 순수 id값 사용
+                // const button = document.getElementById("loginButton");
+                // html5부터 지원된 방식, CSS Selector 사용
+                const button = document.querySelector("#loginButton")
+                // 2. 로그인 버튼에 이벤트 등록
+                button.addEventListener('click', ()=>{
+                    // alert('Login Button Clicked!'); // 팝업
+                    // 실습
+                    // id -> userId, pw -> userPw을 입력요소를 특정
+                    const userId = document.getElementById("userId");
+                    const userPw = document.querySelector("#userPw");
+                    if(userId.value == "kyeongbin" && userPw.value == 123123) 
+                        alert("Login Success!");
+                    else alert ("Login Failed!");
+
+                    // 서버로 데이터 전송
+                    // JS -> ajax -> api 존재 -> vanilla js 코드가 복잡
+                    // html로 전송 or js framework 사용
+                });
+            </script>
+        </div>
+    </body>
+</html>
+
+
+
+
+

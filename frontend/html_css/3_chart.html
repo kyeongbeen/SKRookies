@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div>
+        <!-- <canvas id="chart_id"></canvas> -->
+        <canvas id="chartId"></canvas>
+    </div>
+    <!-- lib import -->
+    <!-- chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 통신 -->
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script>
+        // 여기서부터 차트 관련 업무 처리
+        // 0. 별도의 트리거(버튼 클릭, 검색 등) 없이 진행
+        // 1. 차트를 렌더링 할 요소 특정
+        const chartCanvas = document.getElementById('chartId');
+
+
+        // 2. 데이터는? -> 서버와 통신해서 가져온다
+        // http://127.0.0.1:5500/html_css/data/sales.json 요청해서 결과 가져오기
+        // I/O통신 -> 비동기 -> ajax -> Vanilla JS 복잡함 -> lib 사용
+        // http://www.npmjs.com -> axios -> http://www.npmjs.com/package/axios
+        axios.get("http://127.0.0.1:5500/frontend/html_css/data/sales.json")
+            .then(res => {
+                console.log('Result : ', res);
+                // 실습 res 내부에 존재하는 data만 추출하시오f
+                const { data } = res;
+                console.log('Data : ', data);
+
+                // 차트 생성
+                makeChart(data);
+            })
+            .catch(err => {
+                alert("Error");
+            });
+
+        function makeChart(data) {
+            // 3. 데이터를 차트에적용 -> 데이터 가공
+            // data -> 가공 혹은 추출 -> 배열 2개 생성 교체 자리에 각각 대체
+            let labels = data.map(sale => sale.label);
+            let datas = data.map(data => data.data);
+
+            // 4. 차트 갱신 혹은 새로고침, 생략가능
+            new Chart(chartCanvas, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '# of Votes',
+                        data: datas,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>
