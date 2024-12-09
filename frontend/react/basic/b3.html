@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <meta charset="UTF-8">
+        <title>JSX에 변수값을 적용하여 동적으로 구성</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            const myAccount = "KBBank";
+            const myMoney = '1,000,000';
+            let html = <div>
+                    <p bank={myAccount}>나의 {myAccount}계좌에 현금 {myMoney}이 있다.</p>
+                </div>
+            document.querySelector('#root');
+            const react_root = ReactDOM.createRoot(root);
+            react_root.render(html);
+         </script>
+    </body>
+</html>

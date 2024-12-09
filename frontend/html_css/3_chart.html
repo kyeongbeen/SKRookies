@@ -1,3 +1,18 @@
+<!--
+    - 최초 실습 : 기본골격, html, head, body, div1개 세팅
+    - 주제
+        - 네트워크를 통해서 데이터를 동적으로 획득
+        - chartJs 라이브러리 사용
+            - chartjs 문서참조
+                - npm 방식 : nodejs 스타일로 설치
+                    - 목적 : 앱(웹, 데스크탑), 백엔드서버
+                - CDN 방식 : FE구성(간단하게)
+                    - URL만 연결하여 세팅(external)
+            - js를 html 내에서 사용
+                - 통신, 응답데이터를 전처리, 데이터를 차트에 사용
+        - 동적 데이터를 차트에 적용
+        - 차트 시각화
+-->
 <!DOCTYPE html>
 <html>
 
@@ -15,6 +30,11 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- 통신 -->
     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <!--
+        - js의 주요 통신라이브러리
+            - 기본, html5에서 지원(모든 브라우저 지원) : fetch()
+            - 서드파티 라이브러리 : axios(), ...
+    -->
     <script>
         // 여기서부터 차트 관련 업무 처리
         // 0. 별도의 트리거(버튼 클릭, 검색 등) 없이 진행
@@ -26,6 +46,8 @@
         // http://127.0.0.1:5500/html_css/data/sales.json 요청해서 결과 가져오기
         // I/O통신 -> 비동기 -> ajax -> Vanilla JS 복잡함 -> lib 사용
         // http://www.npmjs.com -> axios -> http://www.npmjs.com/package/axios
+        
+        // 차후 BE서버에서 REST API 서비스로 제공
         axios.get("http://127.0.0.1:5500/frontend/html_css/data/sales.json")
             .then(res => {
                 console.log('Result : ', res);

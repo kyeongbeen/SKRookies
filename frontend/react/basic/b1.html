@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <meta charset="UTF-8">
+        <title>Basic Structure of React</title>
+    </head>
+    <body>
+        <!-- 리액트가 동적으로 화면 구성시 대상이 되는 요소 -->
+        <div id="root"></div>
+        <!-- 리액트 작성 코드 -->
+        <script type="text/babel">
+            // 화면 준비
+            let html = <div>
+                    <p>React</p>
+                </div>
+            // 타겟 특정
+            document.querySelector('#root');
+            const react_root = ReactDOM.createRoot(root); // VDOM 을 생성
+            react_root.render(html); //JSX 렌더링         
+         </script>
+    </body>
+</html>

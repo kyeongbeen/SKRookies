@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <button>Chart Generate</button>
+        <canvas id="chartId"></canvas>
+    </div>
+    <script>
+        // 1. 차트생성 버튼을 클릭하면 차트를 생성
+        $('button').on('click', () => {
+            // 2. 통신(axios 사용)
+            axios.get("http://127.0.0.1:5500/frontend/html_css/data/sales.json")
+                .then(res => {
+                    const { data } = res;
+                    makeChart(data);
+                })
+                .catch(err => {
+                    alert("Error");
+                });
+        });
+        // $('#chartId')
+
+        // 3. 차트그리기
+        function makeChart(data) {
+            let labels = data.map(sale => sale.label);
+            let datas = data.map(data => data.data);
+            new Chart($('#chartId'), {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Result',
+                        data: datas,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>

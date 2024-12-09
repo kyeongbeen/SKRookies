@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <style>
+            /* css 스타일 정의, internal */
+            .myStyle{
+                color:blue;
+                background-color: beige;
+                font-style: italic;
+            }            
+        </style>
+    </head>
+    <body>
+        <div>
+            <!-- h1 ~ h5 : 제목표기 태그 -->
+            <h2 id="subject">Title1</h2>
+            <h2>content1</h2>
+            <h2 class="myStyle">Class1</h2>
+            <p class="myStyle">Class2</p>
+            <p class="demo">Entity1</p>
+            <span>content2</span>
+            <h4>Title2</h4>
+            <!-- 리스트 묘사, ul|ol 성분 li -->
+             <ol>
+                <li>A</li>
+                <li>B</li>
+                <li>C
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </li>
+             </ol>
+
+             <!-- 정보를 표현 -> 목록으로 표현, 검색결과, 게시판, ... -->
+             <table border="1">
+                <!-- column -->
+                <thead> 
+                    <tr>
+                        <th>No</th>
+                        <th>Title</th>
+                        <th>Summary</th>
+                    </tr>
+                </thead>
+                <!-- 데이터, tr하나가 1열-->
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Monday</td>
+                        <td>Start of Week</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>X-mas</td>
+                        <td>Holiday</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>New Years Day</td>
+                        <td>Holiday</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>BirthDay</td>
+                        <td>Holiday</td>
+                    </tr>
+                </tbody>
+             </table>
+             <div>
+                <br>
+                <input type="text" name="userId">
+             </div>
+        </div>
+        <script>
+            // 모든 요소 : *
+            $('*').css('color', 'black');
+            console.log($('#subject'));
+            $('#subject').css('color', 'red'); // 글자색을 빨간색으로 지정
+            
+            // 이 문서상에 존재하는 모든 요소들 중 클래스값이 myStyle인 요소
+            // css 적용 순위 : external < internal < inline
+            $('.myStyle').css('color', 'magenta');
+            $('p').css('color', 'red');
+            $('h2.myStyle').css('backgroundColor', 'yellow');
+            $('p.demo, span, h4').css('color', 'green');
+            $('ol > li').css('color', 'red');
+            $('ol li').css('color', 'blue');
+
+            // 문서상에 존재하는 table중 첫번째 데이터만 추출
+            $('table > tbody > tr:first > td').css('color','red');
+            $('table > tbody > tr:odd > td').css('backgroundColor','lightgray');
+            $('table > tbody > tr:nth-child(2) > td').css('color','blue');
+            $('[name=userId]').css('backgroundColor', 'lightgray');
+            // 문서상 존재하는 input 중 name값이 userId인 요소
+            // $('input[name=userId]').css('backgroundColor', 'blue');
+        </script>
+    </body>
+</html>

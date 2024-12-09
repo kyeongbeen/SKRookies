@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <meta charset="UTF-8">
+        <title>JSX</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            // SPA 특성상 새로고침 X -> 편의상 구성
+            function createDynamicJSX() {
+                // JSX를 동적구성하여 return
+                // 1. 임의의 페이지구성을 위해 난수 사용
+                // 0.0 ~ 1.0 사이값
+                const number = Math.floor(Math.random() * 3);
+                if(number == 0) return <p>React</p>;
+                else if(number == 1) return <p>Gen.1-Redux</p>
+                else return <p>NextJS</p>
+            }
+            
+            // 아래는 수정 X
+            const react_root = ReactDOM.createRoot(document.querySelector('#root'));
+            react_root.render(createDynamicJSX());
+         </script>
+    </body>
+</html>
