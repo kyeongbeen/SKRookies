@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <meta charset="UTF-8">
+        <title>클래스형 컴포넌트 응용</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            /*
+                보여지는 최종 형태
+                <div>
+                    <h3>언어목록</h3>
+                    <ul>
+                        <li>html</li>
+                        ...
+                        <li>swift</li>
+                    </ul>
+                </div>
+                
+                위의 형태처럼 최종 렌더링되는 MyList 클래스형 컴포넌트를 만드시오
+            */
+            class MyList extends React.Component {
+                render() {
+                    // 1. 컴포넌트 속성 분해
+                    const {title, items} = this.props;
+                    // 2. 속성값 -> 분해 -> JSX 내부에 적절히 사용
+                    // 리스트 처리에 대한 자주 나오는 패턴
+                    // item값은 -> 배열로 구성 -> 변환처리 -> <li>...</li> 구성
+                    // split() <-> join()
+                    // 리액트에서 동적으로 목록 구성시 반드시 속성으로 key='고유값' 추가
+                    const item = items.split(", ").map((item, index)=>(
+                        <li key={index}>{item}</li>
+                    ));
+                    return (
+                        <>
+                            <h3>{title}</h3>
+                            <ul>
+                                {item}
+                            </ul>
+                        </>
+                    );
+                }
+                
+            }
+            let html = <div>
+                    <MyList title="언어목록" items="html, css, js, java, swift" />
+                </div>
+            document.querySelector('#root');
+            const react_root = ReactDOM.createRoot(root);
+            react_root.render(html);
+         </script>
+    </body>
+</html>

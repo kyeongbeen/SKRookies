@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <meta charset="UTF-8">
+        <title>Class Component</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            // Food 컴포넌트를 클래스 형으로 구성
+            // 클래스 먼저 정의 -> JSX 사용
+            // react.Component 클래스 사속
+            class Food extends React.Component {
+                // 필수구현함수
+                render() {
+                    // props는 클래스형 컴포넌트의 필드이다(부모로부터 상속)
+                    const {name, price} = this.props;
+                    // 반드시 JSX 리턴
+                    return (
+                        <>
+                            <h3>오늘 점심은 {name}을 먹을것이고, 가격은 {price}원 입니다.</h3>
+                        </>
+                    );
+                }
+            }
+            
+            let html = (
+                <div>
+                    <Food name="돈까스" price="8000" />
+                    <Food name="국밥"  price="10000" />
+                    <Food name="제육볶음" price="9000" />
+                </div>
+            );
+
+            document.querySelector('#root');
+            const react_root = ReactDOM.createRoot(root);
+            react_root.render(html);
+         </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <meta charset="UTF-8">
+    <title>VDOM 화면갱신1 (버퍼 스왑 : 내부적이야기)</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // 작성한 예제는 react 방식에 적합하지 않음
+        // 화면갱신 -> 새로고침 -> 다시 그린다 -> 간격(인터벌)
+        // JS의 인터벌처리(setInterval()), 단발타이머(setTimer())
+        // JS의 타이머계열 함수들은 간격이 약간 밀린다
+        document.querySelector('#root');
+        const react_root = ReactDOM.createRoot(root);
+        setInterval(() => {
+            // 현재 화면에 시, 분, 초를 표기 -> 매 초 갱신
+            const d = new Date();
+            const h = d.getHours();
+            const m = d.getMinutes();
+            const s = d.getSeconds();
+
+            let html = <div>
+                <p>{h}:{m}:{s}</p>
+            </div>
+            react_root.render(html);
+        }, 1000)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <meta charset="UTF-8">
+        <title>Functional Component</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            /*
+                커스텀 컴포넌트의 첫 글자는 대문자로 사용
+            */
+            let html = 
+                <div>
+                    <MyImg src="http://127.0.0.1:5500/frontend/react/basic/serverArchitecture.png" label="설명" />    
+                </div>
+            
+            function MyImg(props) {
+                const {src, label} = props;
+                return (
+                    <>
+                        <img src={src} />
+                        <span>{label}</span>
+                    </>
+                );
+            }
+            document.querySelector('#root');
+            const react_root = ReactDOM.createRoot(root);
+            react_root.render(html);
+         </script>
+    </body>
+</html> 

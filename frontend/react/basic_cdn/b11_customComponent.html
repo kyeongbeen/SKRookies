@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <meta charset="UTF-8">
+        <title>Custom Time Component</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            /*
+                - 컴포넌트명 : MyClock
+                - 스타일 : 객체형 컴포넌트
+                - 최종 렌더링 화면
+                    <div>
+                        <p>h : m : s</p>    
+                    </div>
+                - 1초 단위로 상태변수 업데이트하여 자동 render 처리
+            
+            */
+           class MyClock extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        currDate: new Date()
+                    };
+                    setInterval(()=>{
+                        this.setState({currDate: new Date()})
+                    },1000);
+                }
+                render(){
+                    const h = this.state.currDate.getDate();
+                    const s = this.state.currDate.getSeconds();
+                    const m = this.state.currDate.getMinutes();
+                    return(
+                        <>
+                        <p>{h} : {m} : {s}</p>
+                        </>
+                    );
+                }
+
+           }
+
+            
+            let html = <div>
+                    <MyClock/>
+                </div>
+            document.querySelector('#root');
+            const react_root = ReactDOM.createRoot(root);
+            react_root.render(html);
+         </script>
+    </body>
+</html>

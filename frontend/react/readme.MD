@@ -85,8 +85,7 @@
         - nodeJS기반 react 웹 구성 -> 최종형태
             - npm방식 설치
 
-# basic
-- "b1.html" 참고
+# Basic - CDN
 - html 기반에서 cdn 방식으로 react 설치
 - 기본적인 react 구동 매커니즘이해
 - React Developer Tools 설치
@@ -116,3 +115,150 @@
     - 형식 : { 값 }
     - 값 : 변수, 연산 표현식의 결과물
     - ex) \<p a={값}>{값}\</p>>
+- 리액트 구동 매커니즘 이해
+- 커스텀 컴포넌트 구성
+    - 함수형, 객체형
+    - props, state, 이벤트 처리
+    - 화면갱신 매커니즘 (상태변수 업데이트 -> 화면갱신)
+
+# App - npm
+- React로 FE App(Web)을 구성하는 방식
+- nodeJS기반
+- npm : nodeJS의 패키지 관리자
+    - yarn도 사용
+    - 타 언어/OS
+        - Mac : brew
+        - Linux : apt
+        - Python : pip, conda
+    - 용도
+        - 패키지 설치
+- React App을 기본적으로 생성하는 패키지
+    - create-react-app
+        - https://www.npmjs.com/package/create-react-app
+        - 설치
+            ```
+            npm i create-react-app -g
+            ```
+        - 사용이유
+            - 기본 프로젝트 뼈대가 간결함
+            - 차후에 더 많은 기능이 추가된 보일러플레이트 사용
+                - 기본 프로젝트 구조, 명령어(빌드포함), 포매터, ...
+- 프로젝트 생성
+    - 적절한 위치로 이동
+        - .\frontend\react\app_npm
+    - npx create-react-app demo
+- 프로젝트 구동
+    - 해당 파일로 이동
+    - 실행
+        - npm start
+    - React 버전이 19로 업그레이드 되면서 설정에 에러가 발생
+        - package.json
+            ```json
+            ...
+            "dependencies": {
+                "cra-template": "1.2.0",
+                "react": "^19.0.0",
+                "react-dom": "^19.0.0",
+                "react-scripts": "5.0.1",
+                "web-vitals": "^4.2.4"
+            },
+            ...
+            ```
+        - 패키지 수동설지 (현 프로젝트 dir 내부)
+            - npm install
+
+- 프로젝트 구조
+    ```
+    ├─node_modules          : 프로젝트에 필요한 라이브러리
+    │                       : npm install 명령어 실행후 설치됨 (여기서는 자동설치), git 업로드 x
+    ├─.gitignore            : git에 올라가지 않을 파일들을 기재
+    │                       : node_modules는 반드시 추가
+    ├─package.json          : 프로젝트에 대한 메타데이터 기술
+    │                       : 명령어, 메타정보, 라이브러리 등 기술
+    │                       : 프로젝트 체크시 가장 먼저 검토
+    │
+    ├─public
+    │      favicon.ico
+    │      index.html : SPA 관점에서 1개의 html이 됨
+    │      logo192.png
+    │      logo512.png
+    │      manifest.json
+    │      robots.txt
+    │
+    └─src
+            App.css         : 커스텀 컴포넌트의 CSS
+            App.js          : 커스텀 컴포넌트 (관습적, 첫글자 대문자), App.js 또는 App.jsx로 표기하기도 함
+            App.test.js     : 단위 테스트용
+            index.css       : 메인 CSS
+            index.js        : React 메인코드, 기본구성
+            logo.svg
+            reportWebVitals.js
+            setupTests.js
+    ```
+
+# package.json
+- nodeJS 계열 프로젝트 구조 중 가장 먼저 체크
+- dependencies
+    - 해당 프로젝트에서 사용하는 라이브러리
+    - create-react-app은 자동으로 npm install됨
+    - 라이브러리 설치
+        - 목표 : dependencies 기술, 설치
+        - 위 목표를 명렁어 1번에 수행 가능
+            - 차후 라이브러리 추가시 사용
+        - 샌드박스 모델 -> 외부사용 불가
+- scripts : 명령어
+    - 개발 예시
+        - 기술내용 -> "start": "react-scripts start"
+        - 실제내용 -> npm [run] start
+    - 빌드예시
+        - "build": "react-scripts build"
+        - npm run build
+        - 프로젝트 내부에 build폴더 생성 -> 배포파일
+            - 정적데이터로 구성된 파일
+            - *.html, *.css , *.js, 리소스, 폴더
+            - 백엔드에 배포, 단독서버구동시 배포용
+
+# ES Module(ESM) 방식
+- 모듈(*.js) 가져오기
+    - 목적
+        - 다른 개발자가 만든 모듈을 내가 작성하는 코드에 가져와서 사용
+    - 문법
+        - ESM, CJS 존재
+- node
+    - 모듈 + 디렉토리(같은 유형의 모듈을 묶어둔 그룹, 패키지라고 부르기도 하지만 뉘앙스는 다름)
+- ESM 문법 (가져오기)
+    - import App from '모듈의이름|상대경로+커스텀모듈';
+        - 모듈의이름 : 써드 파트 모듈, npmjs에서 검색되는 모듈
+            - from 'react'; <= 써드파트 모듈중에 react에서 ..
+        - 상대경로+커스텀모듈 : 직접 만든 모듈
+            - from './App' <= 현재 작성중인 코드와 같은 경로에 있는 App.js를 찾아서(출처)
+    - import App
+        - 가져온 모듈을 특정 이름으로 대체한것임(임의의 이름)
+        - 예시
+            - import App from './App';
+            - import App2 from './App';
+            - import App3 from './App';
+        - 통상
+            - 파일명와 동일하게 구성
+            - 대표 모듈명
+    - import { A, B, c  } from './Xxx';
+        - 개별 모듈 가져오기
+        - 출처에서 모듈화된 개별 모듈을 가져오는 표현
+- ESM 문법 (모듈화)
+    - 대표 모듈
+        - export default App;
+            - 코드 가장 마지막줄에 표현(통상)
+            - export default 컴포넌트명;
+    - 개별 모듈
+
+# 컴포넌트의 라이프사이클
+- 목적
+    - 컴포넌트의 생애주기 이해
+    - 객체형 컴포넌트 사용 (여기서만 테스트 가능함)
+    - 함수형 컴포넌트는 사용 불가
+        - 16버전 이후 추가된 `훅`에서 대체 처리 가능
+- 구조
+    - App.js에 LifeCycle 컴포넌트를 모듈 가져오기를 하여 추가
+- 구성
+    - ~/src/LifeCycle.js 생성
+

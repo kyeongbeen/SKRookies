@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <meta charset="UTF-8">
+        <title>Functional Conponent</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            /*
+                커스텀 한 JSX를 구성하는 함수를 컴포넌트 형태로 구성
+                마치 요소처럼 사용
+            */
+            let html = (
+                <div>
+                    {/*
+                        사용자 정의 컴포넌트 사용
+                        Food는 html태그중 없는 요소
+                        리액트는 컴포넌트의 집합 -> 빌드 -> html + css + js
+                    */}
+                    <Food name="돈까스" price="8000" />
+                    <Food name="국밥"  price="10000" />
+                    <Food name="제육볶음" price="9000" />
+                </div>
+            );
+            // Food 컴포넌트를 구성하여 위의 JSX가 문제 없도록 완성
+            // 문법 : 클래스형, 함수형
+            function Food(props) { // property
+                // 반드시 JSX를 return -> 함수형 컴포넌트 기본조건 만족
+                const {name, price} = props;
+                return (
+                    <>
+                        <h3>오늘 점심은 {name}을 먹을것이고, 가격은 {price}원이다.</h3>
+                    </>
+                );
+            }
+            document.querySelector('#root');
+            const react_root = ReactDOM.createRoot(root);
+            react_root.render(html);
+         </script>
+    </body>
+</html> 
