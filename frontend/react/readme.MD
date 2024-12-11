@@ -250,6 +250,22 @@
             - 코드 가장 마지막줄에 표현(통상)
             - export default 컴포넌트명;
     - 개별 모듈
+- 실습
+    - 현재위치 ~/react
+    - mkdir esm
+    - node 프로젝트 생성
+        -npm init
+    - 코드작성
+        - index.js
+        - mod.js
+    - 구조
+        ```
+        ├─index.js
+        │
+        ├─mod.js
+        │
+        └─package.json
+        ```
 
 # 컴포넌트의 라이프사이클
 - 목적
@@ -262,3 +278,76 @@
 - 구성
     - ~/src/LifeCycle.js 생성
 
+# 커스텀 컴포넌트 구현
+- npm 기반
+- "MyInput.js", "MyInput.js","MyCheckBox.js" 참고
+    - app_npm/demo/src에 생성
+    - input 태그를 사용해서 
+    - 객채형 컴포넌트로 구현
+- 템플릿
+    ```js
+    import React, {Component} from "react";
+
+    class MyInput extends Component {
+        constructor(props) {
+            super(props);
+        }
+        render() {
+            return (
+                <>
+                </>
+            );
+        }
+    }
+
+    export default MyInput
+    ```
+
+# Hook(훅)
+- 리액트 16에서 추가된 기능
+- 함수형 컴포넌트에 훅이 추가 -> 리액트 개발 방식 전환
+- hook
+    - 함수형 컴포넌트에 객체형 컴포넌트의 기능을 그럴싸하게 대체처리
+    - 생애주기함수(함수형 X) 훅을 통해 대체처리
+- 종류
+    - 제공되는 기본 훅
+    - 커스텀 훅 -> 대부분 라이브러리에서 응용
+- 프로젝트 생성
+    - hook_test
+
+# hook_test
+- 훅 연습
+- 함수형 컴포넌트 연습 -> 세션1 프로젝트의 FE 최종개발형태
+- 기본형태
+    ```js
+    import './App.css';
+    import {
+        useState,       
+        useEffect,      
+        useMemo,        
+        useCallback,    
+        useRef,         
+        useContext      
+    } from "react";
+    
+    export default function App(props) {
+        return (
+            <div className='App'>
+                <div className="App-header">
+                    작성
+                </div>
+            </div>
+        )
+    }
+    ```
+
+# 기타
+- 네트워크 처리 -> 통신, ajax
+- 라우팅 -> 페이지 이동, 페이지간 데이터 전달
+- 페이지간 데이터 공유, 관리 -> 1세대 : redux ~ `3세대` : ??
+- 템플릿 적용 -> UI, 디자인
+- 빌드 -> 최종형태 -> 단독서비스 <-> 백엔드 또는 백엔드 포함
+
+# ADV
+- TypeScript 업그레이드
+- Next.js 이식

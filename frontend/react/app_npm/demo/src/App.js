@@ -5,13 +5,19 @@
 import logo from './logo.svg';
 import './App.css';
 import LifeCycle from './LifeCycle'; // LifeCycle.js로부터 대표 모듈을 가져온다
+import MyInput from './MyInput';
+import MyCheckBox from './MyCheckBox';
+import MySelect from './MySelect';
 
 // 2. 함수형 컴포넌트 -> 커스텀 JSX를 생성, 특정기능 가지고 있다
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <LifeCycle/>
+        <MySelect languages={['Java','JavaScript','React']} initValue='React' />
+        <MyCheckBox label="연말 여행지 선택"/>
+        <MyInput/>
+        {/* <LifeCycle/> */}
         <img src={logo} className="App-logo" alt="logo" />
         <p>SPA기반 React로 구현한 홈페이지</p>
       </header>

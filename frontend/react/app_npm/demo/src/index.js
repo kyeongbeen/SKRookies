@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 // 커스텀 컴포넌트
+// 대표모듈명으로 App을 지정
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
