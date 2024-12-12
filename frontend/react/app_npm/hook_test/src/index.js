@@ -5,7 +5,11 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App2 from './App2';
 import App3 from './App3';
-import App4 from './App4';
+import App4 from './App4'; // Hook - Basic
+import App5 from './App5'; // Hook - State Variable, ...
+import App6 from './App6'; // Hook - Memoization
+import App7 from './App7'; // Exchange Rate Calculator
+import App8 from './App8'; // Hook - useContext
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div>
@@ -18,7 +22,15 @@ root.render(
     {/* <App3 /> */}
 
     {/* useRef, useEffect 사용 */}
-    <App4 url="https://fakestoreapi.com/products" pid="1" />
+    {/* <App4 url="https://fakestoreapi.com/products" pid="1" /> */}
+
+    {/* <App5 url="https://fakestoreapi.com/products" pid="1" /> */}
+    {/* <App6 url="https://fakestoreapi.com/products" pid="1" /> */}
+    {/* <App7 /> */}
+    <App8 />
+
+
+
   </div>
 );
 

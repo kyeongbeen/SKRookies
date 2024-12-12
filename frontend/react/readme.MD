@@ -171,15 +171,21 @@
     ```
     ├─node_modules          : 프로젝트에 필요한 라이브러리
     │                       : npm install 명령어 실행후 설치됨 (여기서는 자동설치), git 업로드 x
+    │
     ├─.gitignore            : git에 올라가지 않을 파일들을 기재
     │                       : node_modules는 반드시 추가
+    │
+    │
     ├─package.json          : 프로젝트에 대한 메타데이터 기술
     │                       : 명령어, 메타정보, 라이브러리 등 기술
     │                       : 프로젝트 체크시 가장 먼저 검토
     │
+    ├─package-lock.json     : npm install하면 package.json에 포함된 라이브러리들을 포함시켜주는 파일
+    │
+    │
     ├─public
     │      favicon.ico
-    │      index.html : SPA 관점에서 1개의 html이 됨
+    │      index.html       : SPA 관점에서 1개의 html이 됨
     │      logo192.png
     │      logo512.png
     │      manifest.json
@@ -254,7 +260,7 @@
     - 현재위치 ~/react
     - mkdir esm
     - node 프로젝트 생성
-        -npm init
+        - npm init
     - 코드작성
         - index.js
         - mod.js
@@ -346,6 +352,8 @@
 - 라우팅 -> 페이지 이동, 페이지간 데이터 전달
 - 페이지간 데이터 공유, 관리 -> 1세대 : redux ~ `3세대` : ??
 - 템플릿 적용 -> UI, 디자인
+    - material 디자인 (AOS에 적용된 디자인)
+        - mui.com
 - 빌드 -> 최종형태 -> 단독서비스 <-> 백엔드 또는 백엔드 포함
 
 # ADV
