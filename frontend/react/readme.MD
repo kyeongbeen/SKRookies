@@ -351,9 +351,36 @@
 - 네트워크 처리 -> 통신, ajax
 - 라우팅 -> 페이지 이동, 페이지간 데이터 전달
 - 페이지간 데이터 공유, 관리 -> 1세대 : redux ~ `3세대` : ??
+    - 전역적 데이터 관리
+    - 상위 텀포넌트 -> 하위텀포넌트 공유 useConetext
+    - 관계(없는) 컴포넌트가 동일한 데이터를 바라보고, 컨트롤, 업데이트 등 처리
+    - (공유) -> redux(Gen 1) -> mobx(Gen 2) -> zustand(Gen 3) : 서드파티 라이브러리
+        - zustand
+            - state-management solution ((전역)상태관리 솔루션)
+            - useReducer 사용하는 방식과 유사함
+        - 실습
+            - ~/src/state
+        - 설치
+            - npm install zustand
+    - 기본개념 유사 -> 사용편의성 차이
 - 템플릿 적용 -> UI, 디자인
+    - 대시보드 + 게시판, 계산기 등 서브페이지로 세팅
     - material 디자인 (AOS에 적용된 디자인)
         - mui.com
+- 커스텀 훅
+    - 많은 개발사에서 자체 개발로 사용중
+- useReducer
+- 다양한 CSS 적용
+    - CSS 직접 적용
+    - CSS Modules 방식
+    - 서드파티 라이브러리
+        - css style-components 라이브러리 적용
+        - emotion 라이브러리 적용(mui 컴포넌트가 emotion 사용)
+        - tailwind 라이브러리 적용
+            - 'px-2 py-1 bg-red hover:bg-dark-red'
+            - 스타일을 나열하듯이 작성하여서 표현, 용어는 재구성되어 있음
+                - bg-red -> backgroundColor:red
+        - *.scss|sass (Sassy CSS)
 - 빌드 -> 최종형태 -> 단독서비스 <-> 백엔드 또는 백엔드 포함
 
 # ADV

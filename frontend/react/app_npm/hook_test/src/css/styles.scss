@@ -1,0 +1,6 @@
+// 스타일자체를 변수처럼 사용, $ 사용
+$title-color: blue;
+
+.title {
+    color: $title-color;
+}

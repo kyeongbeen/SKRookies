@@ -29,8 +29,6 @@ import axios from 'axios';
 //    모든 타입의 데이터 저장가능
 const TextContext = createContext("오늘은 목요일 내일만 버티면 토요일")
 
-
-
 function End() {
     const data = useContext(TextContext);
     return (

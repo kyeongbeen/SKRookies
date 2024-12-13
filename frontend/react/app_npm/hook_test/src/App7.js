@@ -53,9 +53,7 @@ function App7(props) {
         const jsxOptions = res.data.map((exchange, index)=>{
             const {name} = exchange;
             const code = name.substring(0,3);
-            return (
-                <option key={index} value={code}>{code}</option>
-            );
+            return (<option key={index} value={code}>{code}</option>);
         });
         // 배열에 멤버 추가 삽인
         jsxOptions.push(<option key="-1" value="KRW">KRW</option>);
@@ -135,16 +133,3 @@ function App7(props) {
 
 // 3. 대표 모듈화
 export default App7;
-
-
-
-
-
-
-
-
-
-
-
-
-
