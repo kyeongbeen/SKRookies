@@ -383,6 +383,48 @@
         - *.scss|sass (Sassy CSS)
 - 빌드 -> 최종형태 -> 단독서비스 <-> 백엔드 또는 백엔드 포함
 
+# 라우팅
+- 리액트의 페이징처리
+    - URL 요청시 특정페이지가 처리되도록 구성
+    - react-router-dom -> react-router
+- 프로젝트 생성
+    - npx create-vite@latest
+    - 디렉토리 : ~/app-npm
+        ```
+        √ Project name: ... route_app -> 프로젝트명
+        √ Select a framework: » React -> 타겟 플랫폼
+        √ Select a variant: » JavaScript + SWC -> 개발언어 + 트랜스컴파일러(SWC <-> Babel)
+        ```
+    - cd route-app
+    - npm i react-router
+    - npm install
+    - npm run dev
+    - vite
+        - FE 빌드 툴
+        - SWC와 연게하여 사용
+        - 개발 서버 가동, 수정시 빠른 재가동
+        - TypeScript, Next.js -> vite 사용
+- 빌드 -> 최종서비스 형태
+    - npm run build
+- 최종 결과물
+    - dist
+        index.html, 리소스, *.js, *.css
+
 # ADV
 - TypeScript 업그레이드
 - Next.js 이식
+
+# 기본형
+- 함수형 컴포넌트사용
+- 프로젝트 템플릿
+    - npx create-vite@latest 에서 진행
+- 절차
+    - 요구사항에 맞게 페이지 구성
+    - 개별페이지에서 요구사항 구현
+        - 훅 중심사용
+            - useState, useEffect, useRef를 기본사용
+        - 통신 axios 사용
+- 기타
+    - 페이지가 계속 이어지면서(예약, 뱅킹, 회원가입서비스 등) 데이터를 화면별로 들고 있어야 한다면 -> zustand
+
+
