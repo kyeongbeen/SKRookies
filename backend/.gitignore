@@ -25,5 +25,4 @@ replay_pid*
 
 ### IntelliJ IDEA
 /.idea
-/backend/.idea
-/backend/java/.idea
+/java/.idea
