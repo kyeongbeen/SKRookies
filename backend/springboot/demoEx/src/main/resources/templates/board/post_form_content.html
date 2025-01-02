@@ -1,0 +1,61 @@
+<div th:fragment="frag_content" class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">게시판</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">게시판</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h5 class="my-3 border-bottom pb-1" th:text="${ 'Post 관리' }"></h5>
+                    <form method="post" th:object="${postForm}">
+                        <!--
+                            - 유효성 검증 객체 : postForm 을 통해서 오류 발생시, 에러 return
+                            - 에러 체크하여 조건부 렌더링 수행
+                            - 키값 체크 -> name="subject" -> 삭제처리, 대체 th:field="*{subject}"
+                                - 데이터 전송시 키값 대응, 데이터 수정시 기존값 세팅 자동 처리(수정)
+                         -->
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
+                            <div th:each="error : ${#fields.allErrors()}" th:text="${error}"></div>
+                        </div>
+                        <div class="my-3">
+                            <label for="subject" class="form-label">제목</label>
+<!--                            <input type="text" name="subject" id="subject" class="form-control" placeholder="제목을 입력하세요">-->
+                            <input type="text" th:field="*{subject}" id="subject" class="form-control" placeholder="제목을 입력하세요">
+                        </div>
+                        <div class="my-3">
+                            <label for="content" class="form-label">본문</label>
+<!--                            <textarea name="content" id="content" class="form-control" rows="7"></textarea>-->
+                            <textarea th:field="*{content}" id="content" class="form-control" rows="7"></textarea>
+                        </div>
+                        <div class="my-3">
+                            <input type="submit" value="저장하기" class="btn btn-warning">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+

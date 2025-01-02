@@ -1,0 +1,33 @@
+<!--/*
+  - 개별페이지
+  - 공통 레이아웃 적용 받음
+    - 레이아웃 조정 -> 사용한 개별 페이지가 모두 변경 반영됨 -> 유지보수 용이
+  - 경로는 상대결로
+*/-->
+<html layout:decorate="~{ui/layout}">
+<!-- 레이아웃의 본문에 들어갈 내용 기술 -->
+<div layout:fragment="content">
+    <fieldset>
+      <p>개별 페이지 상세 내용</p>
+    </fieldset>
+  <!-- 원본조각이 그대로 대체됨, h2는 사라짐 -->
+  <h2 th:replace="ui/mod.html :: frag_A"></h2>
+  <br/>
+  <h2 th:replace="ui/mod.html :: frag_B"></h2>
+
+  <!-- h2 그대로 유지하고 하위로 조각 원본 삽입 -->
+  <fieldseft>
+    <h2 th:insert="ui/mod.html :: frag_A"></h2>
+    <br/>
+    <h2 th:insert="ui/mod.html :: frag_B"></h2>
+  </fieldseft>
+
+  <!-- insert 와 유사하지만, 조각의 부모요소는 삭제됨 -->
+  <fieldseft>
+    <h2 th:include="ui/mod.html :: frag_A"></h2>
+    <br/>
+    <h2 th:include="ui/mod.html :: frag_B"></h2>
+  </fieldseft>
+</div>
+
+</html>
